@@ -1,7 +1,7 @@
-# Java-Vector2
+Java-Vector2
 Utilities.Vector2
-public class Vector2
 
+public class Vector2
 Represents a 2D vector with x and y coordinates using ints.
 
 Class Overview
@@ -40,6 +40,18 @@ public Vector2(int x, int y)
 Initializes the vector with the given x and y coordinates.
 
 Method Summary
+public static Vector2 add(Vector2 vector1, Vector2 vector2)
+Returns a new vector resulting from the addition of two vectors.
+
+public static Vector2 subtract(Vector2 vector1, Vector2 vector2)
+Returns a new vector resulting from subtracting the second vector from the first one.
+
+public static Vector2 multiply(Vector2 vector, int scalar)
+Returns a new vector by multiplying the vector by the given scalar.
+
+public static Vector2 divide(Vector2 vector, int scalar)
+Returns a new vector by dividing the vector by the given scalar.
+
 public Vector2 plus(Vector2 vector2)
 Returns a new vector by adding the given vector to the current one.
 
@@ -76,7 +88,5 @@ The Vector2 class does not handle floating point inaccuracies and might not be s
 Exceptions
 Various methods throw exceptions based on the following conditions:
 
-IllegalArgumentException: If the vectors provided are null where they shouldn't be.
-See Also
-Other related classes or interfaces which may be of interest.
+IllegalArgumentException: If the vectors provided are null where they shouldn't be, or if scalar value is zero during division.
 

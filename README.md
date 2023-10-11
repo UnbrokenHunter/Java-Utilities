@@ -1,12 +1,12 @@
-## Overview
+# Overview
 
-# **[Java-Vector2](#java-vector2)**
+## **[Java-Vector2](#java-vector2)**
   - **Description**: Represents a 2D vector with `x` and `y` coordinates using `ints`. Provides operations for creating, manipulating, and querying 2D vectors. [Details](#java-vector2)
   
-# **[Java-TextUtilities](#java-textutilities)**
+## **[Java-TextUtilities](#java-textutilities)**
   - **Description**: A collection of utility methods for text rendering, measurement, and manipulation. Useful for developers aiming for high-quality and consistent text presentation across platforms. [Details](#java-textutilities)
   
-# **[Java-Looper](#java-looper)**
+## **[Java-Looper](#java-looper)**
   - **Description**: A utility for creating game loops or any loop that requires a method to run at a fixed frame rate. Uses Java's reflection capabilities for its operation. [Details](#java-looper)
 
 # Java-Vector2

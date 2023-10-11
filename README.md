@@ -1,3 +1,14 @@
+## Overview
+
+- **[Java-Vector2](#java-vector2)**
+  - **Description**: Represents a 2D vector with `x` and `y` coordinates using `ints`. Provides operations for creating, manipulating, and querying 2D vectors. [Details](#java-vector2)
+  
+- **[Java-TextUtilities](#java-textutilities)**
+  - **Description**: A collection of utility methods for text rendering, measurement, and manipulation. Useful for developers aiming for high-quality and consistent text presentation across platforms. [Details](#java-textutilities)
+  
+- **[Java-Looper](#java-looper)**
+  - **Description**: A utility for creating game loops or any loop that requires a method to run at a fixed frame rate. Uses Java's reflection capabilities for its operation. [Details](#java-looper)
+
 # Java-Vector2
 ### **Utilities.Vector2**
 
@@ -97,3 +108,113 @@ Various methods throw exceptions based on the following conditions:
 
 - **`IllegalArgumentException`**: If the vectors provided are null where they shouldn't be, or if scalar value is zero during division.
 
+
+# Java-TextUtilities
+### **Utilities.TextUtilities**
+
+## `public class TextUtilities`
+
+**Provides a collection of utility methods for text rendering, measurement, and manipulation.**
+
+### Class Overview
+
+The `TextUtilities` class offers an array of methods for enhancing text-related operations. This encompasses tasks like calculating font sizes, aligning text, adding graphical effects, and optimizing rendering. Developers can leverage this utility to ensure text fits designated areas, is aesthetically pleasing, and retains high-quality across various display settings.
+
+### Field Summary
+
+*(For the sake of the example, I'm adding hypothetical fields. Adjust as needed.)*
+
+- **`public static final Font DEFAULT_FONT`**  
+    The default font used when no specific font is provided.
+
+- **`public static final int MAX_FONT_SIZE`**  
+    The maximum allowable font size.
+
+- **`public static final int MIN_FONT_SIZE`**  
+    The minimum allowable font size.
+
+### Method Summary
+
+- **`public static int calcFontSize(String text, Rectangle area)`**  
+    Determines the maximum possible font size for a given text to fit within a specified area.
+
+- **`public static Point calcMidText(String text, Rectangle area)`**  
+    Calculates the center position for the given text.
+
+- **`public static String[] wrapText(String text, int maxWidth)`**  
+    Breaks text into lines that fit within a given maximum width.
+
+- **`public static boolean isTextVisible(String text, Rectangle area, Font font)`**  
+    Checks if a text can be fully displayed within the given area for a specified font size.
+
+- **`public static String adjustTextToFit(String text, Rectangle area, Font font)`**  
+    Adjusts the text by changing its font size or truncating it to fit within a specified area.
+
+- **`public static void alignTextLeft(String text, Rectangle area)`**  
+    Aligns text to the left of a given area.
+
+- **`public static void alignTextRight(String text, Rectangle area)`**  
+    Aligns text to the right of a given area.
+
+- **`public static void alignTextCenter(String text, Rectangle area)`**  
+    Aligns text to the center of a given area.
+
+- **`public static int getHeightOfMultilineText(String[] lines, Font font)`**  
+    Calculates the total height required for multiple lines of text.
+
+- **`public static int getOptimalFontSizeForMultiline(String text, Rectangle area)`**  
+    Finds the optimal font size for multiple lines of text.
+
+- **`public static void rotateText(String text, int angle)`**  
+    Renders text at a specified rotation angle.
+
+- **`public static void addShadowToText(String text, ShadowProperties properties)`**  
+    Adds a shadow effect to the text.
+
+- **`public static void addOutlineToText(String text, OutlineProperties properties)`**  
+    Outlines the text.
+
+- **`public static void setHighQualityRendering(GraphicsContext context)`**  
+    Improves the text rendering quality.
+
+- **`public static void setAlpha(GraphicsContext context, double alpha)`**  
+    Sets the transparency level for the graphics context.
+
+- **`public static void setGradientFill(GraphicsContext context, GradientProperties gradient)`**  
+    Sets a gradient fill for the graphics context.
+
+### Notes
+
+Utilizing the `TextUtilities` class can aid in delivering a consistent and professional visual experience for end-users. Always consider device resolutions and display settings when using text utilities to ensure optimal presentation across platforms.
+
+### Exceptions
+
+Several methods might throw exceptions based on given conditions:
+
+- **`IllegalArgumentException`**: If the provided text, properties, or dimensions are null or if certain constraints are violated (e.g., negative font size, invalid gradient specifications, etc.).
+
+
+# Java-Looper
+
+### Looper - Game Loop Utility
+
+The `Looper` class facilitates the creation of game loops or any other loop that requires running a method at a fixed frame rate. It wraps the loop logic inside a dedicated thread, ensuring that the target frame rate is achieved as closely as possible.
+
+**Usage:**  
+To utilize the `Looper`, instantiate it with the method of the class you want to call continuously. The Looper will automatically begin executing the loop upon instantiation.
+
+**Example:**  
+```java
+Looper myLooper = new Looper(this, "myUpdateMethod", 60);
+```
+This will call `myUpdateMethod` in the current object at approximately 60 frames per second.
+
+**Note:**  
+This class leverages Java's reflection capabilities to call the desired method. While powerful, reflection introduces some runtime overhead. Therefore, performance-critical applications might require an alternative implementation approach.
+
+- [Reflection in Java](https://www.oracle.com/technical-resources/articles/java/javareflection.html)
+- [Runnable Interfaces in Java](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
+
+**Author:** Hunter  
+**Version:** 1.0  
+**Since:** 2022-12-3

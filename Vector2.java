@@ -3,7 +3,33 @@ package Utilities;
 import java.util.Objects;
 
 /**
- * Represents a 2D vector with x and y coordinates.
+ * Represents a 2D vector with integer x and y coordinates.
+ * 
+ * <p>
+ * This class encapsulates operations and properties of a 2-dimensional vector
+ * that can be used in various mathematical or graphical scenarios.
+ * </p>
+ *
+ * <p>
+ * Common operations such as addition, subtraction, and magnitude calculation
+ * are provided. It also provides a set of predefined vectors like {@link #zero}
+ * and {@link #up} for convenience.
+ * </p>
+ * 
+ * <p>
+ * Example:
+ * 
+ * <pre>
+* {@code
+ * Vector2 a = new Vector2(1, 2);
+ * Vector2 b = new Vector2(2, 3);
+ * Vector2 result = a.plus(b); // Returns a new Vector2(3, 5)
+ * }
+* </pre>
+ * </p>
+ * 
+ * @author Hunter
+ * @since 1.0
  */
 public class Vector2 {
 
@@ -61,47 +87,150 @@ public class Vector2 {
 	}
 
 	/**
-	 * Add the vectors together.
+	 * Adds the provided vector's coordinates to this vector's coordinates.
+	 * <p>
+	 * This method performs element-wise addition between this vector and the
+	 * provided vector.
+	 * The result is a new {@code Vector2} instance, without modifying the original
+	 * vectors.
+	 * </p>
 	 * 
-	 * @param vector2 the value to be added to the original.
-	 * @return Returns a new Vector2 that has the original value, plus the new
-	 *         value.
+	 * @param vector2 The vector to be added to this vector. Must not be
+	 *                {@code null}.
+	 * @return A new {@code Vector2} instance with the result of the addition.
+	 * @throws IllegalArgumentException if {@code vector2} is null.
 	 */
 	public Vector2 plus(Vector2 vector2) {
+		if (vector2 == null) {
+			throw new IllegalArgumentException("Provided vector must not be null");
+		}
 		return new Vector2(x + vector2.x, y + vector2.y);
 	}
 
 	/**
-	 * Subtracts the vectors.
+	 * Subtracts the provided vector's coordinates from this vector's coordinates.
 	 * 
-	 * @param vector2 the value to be subtracted from the original.
-	 * @return Returns a new Vector2 that has the original value, minus the new
-	 *         value.
+	 * @param vector2 The vector whose coordinates are to be subtracted from this
+	 *                vector. Must not be {@code null}.
+	 * @return A new {@code Vector2} instance with the result of the subtraction.
+	 * @throws IllegalArgumentException if {@code vector2} is null.
 	 */
 	public Vector2 minus(Vector2 vector2) {
+		if (vector2 == null) {
+			throw new IllegalArgumentException("Provided vector must not be null");
+		}
 		return new Vector2(x - vector2.x, y - vector2.y);
 	}
 
 	/**
-	 * Multiplies both x and y by the number.
+	 * Multiplies this vector's coordinates by the provided scalar value.
+	 * <p>
+	 * This operation scales the vector's magnitude by the scalar, changing its
+	 * length
+	 * but not its direction.
+	 * </p>
 	 * 
-	 * @param num The number to multiply the vector by.
-	 * @return Returns a new Vector2, with each value being multiplied by the number
-	 *         in the parameter.
+	 * @param scalar The scalar value by which this vector's coordinates are to be
+	 *               multiplied.
+	 * @return A new {@code Vector2} instance with the result of the multiplication.
 	 */
-	public Vector2 mult(int num) {
-		return new Vector2(x * num, y * num);
+	public Vector2 mult(int scalar) {
+		return new Vector2(x * scalar, y * scalar);
 	}
 
 	/**
-	 * Divides both x and y by the number.
+	 * Divides this vector's coordinates by the provided scalar value.
 	 * 
-	 * @param num The number to divide the vector by.
-	 * @return Returns a new Vector2, with each value being divided by the number
-	 *         in the parameter.
+	 * @param scalar The scalar value by which this vector's coordinates are to be
+	 *               divided. Must not be zero.
+	 * @return A new {@code Vector2} instance with the result of the division.
+	 * @throws IllegalArgumentException if {@code scalar} is zero.
 	 */
-	public Vector2 div(int num) {
-		return new Vector2(x / num, y / num);
+	public Vector2 div(int scalar) {
+		if (scalar == 0) {
+			throw new IllegalArgumentException("Scalar value must not be zero");
+		}
+		return new Vector2(x / scalar, y / scalar);
+	}
+
+	/**
+	 * Adds two vectors together and returns the resulting vector.
+	 * <p>
+	 * This static method performs a vector addition by taking the x and y
+	 * coordinates
+	 * from each input vector, adding them together, and then returning a new
+	 * {@code Vector2}
+	 * instance with the resultant coordinates.
+	 * </p>
+	 * 
+	 * @param vector1 The first vector. Must not be {@code null}.
+	 * @param vector2 The second vector. Must not be {@code null}.
+	 * @return A new {@code Vector2} instance that represents the sum of the two
+	 *         input vectors.
+	 * @throws IllegalArgumentException if either {@code vector1} or {@code vector2}
+	 *                                  is null.
+	 */
+	public static Vector2 add(Vector2 vector1, Vector2 vector2) {
+		if (vector1 == null || vector2 == null) {
+			throw new IllegalArgumentException("Vectors must not be null");
+		}
+		return vector1.plus(vector2);
+	}
+
+	/**
+	 * Subtracts the second vector from the first vector and returns the resulting
+	 * vector.
+	 * 
+	 * @param vector1 The vector from which {@code vector2} is subtracted. Must not
+	 *                be {@code null}.
+	 * @param vector2 The vector to be subtracted. Must not be {@code null}.
+	 * @return A new {@code Vector2} instance that represents the difference of the
+	 *         two input vectors.
+	 * @throws IllegalArgumentException if either {@code vector1} or {@code vector2}
+	 *                                  is null.
+	 */
+	public static Vector2 subtract(Vector2 vector1, Vector2 vector2) {
+		if (vector1 == null || vector2 == null) {
+			throw new IllegalArgumentException("Vectors must not be null");
+		}
+		return vector1.minus(vector2);
+	}
+
+	/**
+	 * Multiplies a vector by a scalar value and returns the resulting vector.
+	 * 
+	 * @param vector The vector to be multiplied. Must not be {@code null}.
+	 * @param scalar The scalar value by which the vector is multiplied.
+	 * @return A new {@code Vector2} instance that represents the product of the
+	 *         vector and the scalar.
+	 * @throws IllegalArgumentException if {@code vector} is null.
+	 */
+	public static Vector2 multiply(Vector2 vector, int scalar) {
+		if (vector == null) {
+			throw new IllegalArgumentException("Vector must not be null");
+		}
+		return vector.mult(scalar);
+	}
+
+	/**
+	 * Divides a vector by a scalar value and returns the resulting vector.
+	 * 
+	 * @param vector The vector to be divided. Must not be {@code null}.
+	 * @param scalar The scalar value by which the vector is divided. Must not be
+	 *               zero.
+	 * @return A new {@code Vector2} instance that represents the quotient of the
+	 *         vector and the scalar.
+	 * @throws IllegalArgumentException if {@code vector} is null or {@code scalar}
+	 *                                  is zero.
+	 */
+	public static Vector2 divide(Vector2 vector, int scalar) {
+		if (vector == null) {
+			throw new IllegalArgumentException("Vector must not be null");
+		}
+		if (scalar == 0) {
+			throw new IllegalArgumentException("Scalar value must not be zero");
+		}
+		return vector.div(scalar);
 	}
 
 	/**

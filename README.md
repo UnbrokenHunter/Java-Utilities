@@ -185,7 +185,8 @@ The `TextUtilities` class offers an array of methods for enhancing text-related 
 
 ### Notes
 
-Utilizing the `TextUtilities` class can aid in delivering a consistent and professional visual experience for end-users. Always consider device resolutions and display settings when using text utilities to ensure optimal presentation across platforms.
+<b>Note</b> - This class makes use of another Utility class I made, titled Vector2. If you do not want to use this Helper class, feel free to edit the program to work around it, or just add it to the project too!.
+- **[Java-Vector2](#java-vector2)**
 
 ### Exceptions
 

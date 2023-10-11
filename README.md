@@ -120,19 +120,6 @@ Various methods throw exceptions based on the following conditions:
 
 The `TextUtilities` class offers an array of methods for enhancing text-related operations. This encompasses tasks like calculating font sizes, aligning text, adding graphical effects, and optimizing rendering. Developers can leverage this utility to ensure text fits designated areas, is aesthetically pleasing, and retains high-quality across various display settings.
 
-### Field Summary
-
-*(For the sake of the example, I'm adding hypothetical fields. Adjust as needed.)*
-
-- **`public static final Font DEFAULT_FONT`**  
-    The default font used when no specific font is provided.
-
-- **`public static final int MAX_FONT_SIZE`**  
-    The maximum allowable font size.
-
-- **`public static final int MIN_FONT_SIZE`**  
-    The minimum allowable font size.
-
 ### Method Summary
 
 - **`public static int calcFontSize(String text, Rectangle area)`**  

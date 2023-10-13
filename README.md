@@ -66,8 +66,14 @@ The `Vector2` class provides operations for creating, manipulating, and querying
 - **`public static Vector2 multiply(Vector2 vector, int scalar)`**  
     Returns a new vector by multiplying the vector by the given scalar.
 
+- **`public static Vector2 multiply(Vector2 vector, Vector2 vector2)`**  
+    Returns a new vector by multiplying the vectors together.
+
 - **`public static Vector2 divide(Vector2 vector, int scalar)`**  
     Returns a new vector by dividing the vector by the given scalar.
+
+- **`public static Vector2 divide(Vector2 vector, Vector2 vector2)`**  
+    Returns a new vector by dividing the vector by the given vector2.
 
 - **`public Vector2 plus(Vector2 vector2)`**  
     Returns a new vector by adding the given vector to the current one.
@@ -78,8 +84,14 @@ The `Vector2` class provides operations for creating, manipulating, and querying
 - **`public Vector2 mult(int num)`**  
     Multiplies the components of the vector by the given number.
 
+- **`public Vector2 mult(Vector2 vector)`**  
+    Multiplies the components of the vectors.
+
 - **`public Vector2 div(int num)`**  
     Divides the components of the vector by the given number.
+
+- **`public Vector2 div(Vector2 vector)`**  
+    Divides the components of the vector by the given vector2.
 
 - **`public double magnitude()`**  
     Computes the magnitude (length) of the vector.
@@ -90,6 +102,12 @@ The `Vector2` class provides operations for creating, manipulating, and querying
 - **`public Vector2 binarize()`**  
     Binarizes the components of the vector.
 
+- **`public Vector2 truncate()`**
+    Truncates the x and y coordinates of the vector.
+
+- **`public Vector2 round()`**
+    Rounds the x and y coordinates of the vector to the nearest whole number.
+  
 - **`public int hashCode()`**
     Returns a hash code value for the vector.
 
